@@ -28,7 +28,7 @@ const data = [
     provider: 'Prince Beqoe',
     rating: 4.6,
     distance: 1.2,
-    price: '100.00',
+    price: 100,
     service: 'Taps, Sinks, and Toilets Installation and Fixing',
     img: 'https://plus.unsplash.com/premium_photo-1661962372055-1ef334c33f7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGx1bWJpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60',
   },
@@ -38,7 +38,7 @@ const data = [
     provider: 'Janet Adom',
     rating: 4.5,
     distance: 1.2,
-    price: '123.00',
+    price: 123,
     service: 'Moving and Packing',
     img: 'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW92aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
   },
@@ -68,7 +68,7 @@ const data = [
     provider: 'Prince Beqoe',
     rating: 4.6,
     distance: 1.2,
-    price: '100.00',
+    price: 1,
     service: 'Taps, Sinks, and Toilets Installation and Fixing',
     img: 'https://plus.unsplash.com/premium_photo-1661962372055-1ef334c33f7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGx1bWJpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60',
   },
@@ -78,7 +78,7 @@ const data = [
     provider: 'Janet Adom',
     rating: 4.5,
     distance: 1.2,
-    price: '123.00',
+    price: 23,
     service: 'Moving and Packing',
     img: 'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW92aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
   },
@@ -94,6 +94,7 @@ function TopRatedSection() {
         <div className="screen-padding flex gap-4 min-w-min pb-10 whitespace-nowrap">
           {data.map((item) => (
             <ProviderCard
+              id={item.id}
               category={item.category}
               key={item.id}
               provider={item.provider}

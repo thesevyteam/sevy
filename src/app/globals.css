@@ -50,15 +50,33 @@ p {
   scrollbar-width: none;
 }
 
+.slider-dot {
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.slick-dots {
+  bottom: 0 !important;
+}
+
 @layer components {
   body {
     @apply text-primary-text bg-[#d8f3dc] m-auto;
   }
   .screen-padding {
-    @apply px-5 sm:px-8 lg:px-24;
+    @apply px-5 sm:px-8 lg:px-16;
+  }
+  .md-screen-padding {
+    @apply px-0 sm:px-8 lg:px-16;
   }
   .screen-padding-l {
-    @apply pl-5 sm:pl-8 lg:pl-24;
+    @apply pl-5 sm:pl-8 lg:pl-16;
+  }
+  .slider-dot {
+    @apply w-2 h-2 rounded-full bg-primary-100 cursor-pointer transition-all duration-300;
+  }
+  .slider-dot.active {
+    @apply bg-primary transform scale-150;
   }
 }
 

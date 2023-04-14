@@ -17,9 +17,11 @@ module.exports = {
       spacing: {
         70: '17rem',
         88: '22rem',
+        '40vh': '40vh',
+        '45vh': '45vh',
+        '50vh': '50vh',
         '70vh': '70vh',
         '75vh': '75vh',
-        '50vh': '50vh',
       },
     },
     fontFamily: {

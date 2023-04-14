@@ -7,7 +7,7 @@ import TopRatedSection from './components/topRatedSection';
 
 function Home() {
   return (
-    <div className="w-full mt-16">
+    <div className="w-full mt-20">
       <div className="screen-padding flex w-full items-center h-50vh lg:h-75vh">
         <div className="w-full lg:w-1/2">
           <CapsuleIndicator

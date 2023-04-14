@@ -55,7 +55,7 @@ function Header() {
   return (
     <>
       <header
-        className={`flex justify-between items-center h-16 px-5 sm:px-8 lg:px-24 inset-x-0 fixed z-10 transition-all duration-200 ${
+        className={`flex justify-between items-center h-16 screen-padding inset-x-0 fixed z-10 transition-all duration-200 ${
           isScrolled ? 'bg-primary shadow-md' : 'bg-transparent'
         }`}
       >

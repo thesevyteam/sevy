@@ -1,3 +1,5 @@
+// import '@/app/global.css';
+
 function Price({
   price,
   prefix,
@@ -7,14 +9,14 @@ function Price({
 }) {
   return (
     <div
-      className={`font-bold flex justify-center items-center gap-1 ${
+      className={`font-bold flex items-center gap-1 ${
         small ? 'text-sm' : 'text-lg'
       }`}
     >
       {prefix && <span>{prefix}</span>}
-      {startingPrice && <span>Starting from</span>}
       <span>{currency}</span>
-      <span>{price}</span>
+      <span>{price.toFixed(2)}</span>
+      {startingPrice && <span>(Starting Price)</span>}
     </div>
   );
 }

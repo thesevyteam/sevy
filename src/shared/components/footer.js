@@ -26,7 +26,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-white text-opacity-75">
-                  Contact Us
+                  Sign up as a Service Provider
                 </a>
               </li>
             </ul>

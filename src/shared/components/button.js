@@ -14,7 +14,7 @@ function Button({
 }) {
   return (
     <div
-      className={`h-10 px-3 flex justify-center items-center gap-2 cursor-pointer shadow-md active:px-2.5 active:h-9 ${
+      className={`h-10 px-3 flex justify-center items-center gap-2 cursor-pointer shadow-md active:px-2.5 active:scale-95 transition-all duration-200 ${
         round
           ? 'rounded-full'
           : roundOnShrink
