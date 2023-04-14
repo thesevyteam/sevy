@@ -1,91 +1,58 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
+import Button from '@/shared/components/button';
+import CapsuleIndicator from '@/shared/components/capsuleIndicator';
+import Image from 'next/image';
+import { FiSearch } from 'react-icons/fi';
+import ServicesSection from './components/servicesSection';
+import TopRatedSection from './components/topRatedSection';
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <div className="w-full mt-16">
+      <div className="screen-padding flex w-full items-center h-50vh lg:h-75vh">
+        <div className="w-full lg:w-1/2">
+          <CapsuleIndicator
+            className="lg:hidden flex w-fit"
+            text="Cape Coast, GH"
+            location={true}
+          />
+          <div className="text-7xl font-bold flex cursor-default">
+            <h1>
+              Get it done{' '}
+              <span className="text-primary tracking-wide">Right</span>
+            </h1>
+          </div>
+          <h2 className="mt-5 text-xl tracking-wide cursor-default">
+            From leaky taps to broken locks, we’ve got you covered
+          </h2>
+          <div className="mt-5 shadow-md rounded-md flex justify-center items-center">
+            <input
+              type="search"
+              className="flex-1 bg-white outline-none h-10 rounded-l-md px-2 text-primary-text"
+              placeholder="What services are you looking for?"
+            ></input>
+            <Button
+              icon={
+                <FiSearch style={{ strokeWidth: '3', width: 18, height: 18 }} />
+              }
+              className="rounded-l-none px-4"
             />
-          </a>
+          </div>
+        </div>
+        {/* handyman img */}
+        <div className="hidden w-1/2 h-full relative lg:flex justify-center items-center">
+          <Image
+            className="absolute"
+            src="/assets/images/handyman.png"
+            fill={true}
+            style={{ objectFit: 'contain' }}
+            alt="Happy repairman holds hammer and paint roller"
+          />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <ServicesSection />
+      <TopRatedSection />
+    </div>
   );
 }
+
+export default Home;
