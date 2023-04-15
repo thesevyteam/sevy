@@ -58,6 +58,9 @@ p {
 .slick-dots {
   bottom: 0 !important;
 }
+.flip-horizontal {
+  transform: scaleX(-1);
+}
 
 @layer components {
   body {
@@ -77,6 +80,9 @@ p {
   }
   .slider-dot.active {
     @apply bg-primary transform scale-150;
+  }
+  .error {
+    @apply text-red-500 text-sm font-semibold block;
   }
 }
 

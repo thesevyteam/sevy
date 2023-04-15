@@ -2,7 +2,6 @@
 
 import '@/app/globals.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import {
   BsCalendarWeekFill,
@@ -13,6 +12,7 @@ import {
 import { RiNotificationFill } from 'react-icons/ri';
 import Button from './button';
 import CapsuleIndicator from './capsuleIndicator';
+import Logo from './logo';
 import NavIcon from './navIcon';
 
 const iconStyle = { width: 16, height: 16 };
@@ -64,21 +64,7 @@ function Header() {
             isScrolled ? 'bg-white' : 'bg-transparent'
           }`}
         >
-          <Link href={'#'} className="flex justify-between items-center">
-            <Image
-              src="/logo_icon.svg"
-              width="32"
-              height="32"
-              alt="sevy logo icon"
-            />
-            <Image
-              src="/logo_text.svg"
-              height="32"
-              width="58"
-              className="mt-3 hidden md:block"
-              alt="sevy logo text"
-            />
-          </Link>
+          <Logo href={'/'} />
         </div>
         <CapsuleIndicator
           className="hidden lg:flex"

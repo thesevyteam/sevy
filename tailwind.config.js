@@ -38,6 +38,7 @@ module.exports = {
         600: '#2D6A4F',
         900: '#2D6A4F',
       },
+      'primary-dark': '#5348A5',
       'primary-gray': '#808080',
       'primary-text': '#545454',
       'primary-red': {

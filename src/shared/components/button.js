@@ -7,31 +7,38 @@ function Button({
   text,
   color = 'bg-primary hover:bg-primary-600',
   icon,
-  textColor = '#fff',
+  textColor = 'text-white',
   iconColor = 'text-white',
   round = false,
   className,
+  onClick,
+  iconPlacement = 'left',
+  disabled = false,
 }) {
   return (
-    <div
-      className={`h-10 px-3 flex justify-center items-center gap-2 cursor-pointer shadow-md active:px-2.5 active:scale-95 transition-all duration-200 ${
+    <button
+      disabled={disabled}
+      onClick={onClick}
+      className={`appearance-none outline-none active:outline-none px-3 flex justify-center items-center gap-2 cursor-pointer active:scale-95 transition-all duration-200 disabled:bg-opacity-50 disabled:cursor-default disabled:active:scale-100 
+      ${type === 'text' ? '' : 'h-10 shadow-md hover:shadow-lg'} 
+      ${type === 'primary' ? `${color}` : 'bg-transparent'}
+      ${
         round
           ? 'rounded-full'
           : roundOnShrink
           ? 'rounded-full md:rounded-md'
           : 'rounded-md'
-      } hover:shadow-lg ${color + ' ' + iconColor + ' ' + className}`}
+      } ${iconColor + ' ' + className} ${
+        iconPlacement === 'right' && 'flex-row-reverse'
+      }`}
     >
       {icon && icon}
       {text && (
-        <span
-          style={{ color: textColor }}
-          className={`${shrink && 'hidden md:block'}`}
-        >
+        <span className={`${shrink && 'hidden md:block'} ${textColor}`}>
           {text}
         </span>
       )}
-    </div>
+    </button>
   );
 }
 
