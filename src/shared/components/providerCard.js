@@ -23,12 +23,16 @@ function ProviderCard({
     <Link
       href={`/services/${id}`}
       className={`flex ${
-        type === 'wide' ? 'w-full flex-row h-48' : 'flex-col w-56'
+        type === 'wide'
+          ? 'w-full flex-col lg:flex-row lg:h-48'
+          : 'flex-col w-56'
       } relative rounded-md shadow-md bg-white overflow-hidden cursor-pointer hover:shadow-lg`}
     >
       <div
         className={`relative overflow-hidden ${
-          type === 'wide' ? 'h-full w-1/3 rounded-l-md' : 'h-32 rounded-t-md'
+          type === 'wide'
+            ? 'h-32 lg:h-full lg:w-1/3 rounded-t-md lg:rounded-t-none lg:rounded-l-md'
+            : 'h-32 rounded-t-md'
         }`}
       >
         <Image
@@ -43,27 +47,26 @@ function ProviderCard({
           small={true}
           className={`absolute ${
             type === 'wide'
-              ? 'left-0 bottom-0 rounded-tr-md'
+              ? 'top-0 right-0 rounded-bl-md lg:top-auto lg:right-auto lg:rounded-bl-none lg:left-0 lg:bottom-0 lg:rounded-tr-md'
               : 'top-0 right-0 rounded-bl-md'
           } bg-white p-1 shadow-md`}
         />
       </div>
       <div
         className={`p-2 flex flex-col ${
-          type === 'wide' ? 'justify-between w-2/3' : 'gap-1'
+          type === 'wide' ? 'justify-between gap-1 lg:w-2/3' : 'gap-1'
         }`}
       >
         <div
           className={`flex gap-2 items-center ${
-            type === 'wide' ? 'justify-between' : 'justify-center'
+            type === 'wide'
+              ? 'justify-center lg:justify-between'
+              : 'justify-center'
           }`}
         >
           <p
-            className={`${
-              type === 'wide'
-                ? ''
-                : 'whitespace-nowrap overflow-hidden text-ellipsis flex-1'
-            } p-0 m-0`}
+            title={service}
+            className={`whitespace-nowrap overflow-hidden text-ellipsis flex-1 p-0 m-0`}
           >
             {service}
           </p>
@@ -71,12 +74,13 @@ function ProviderCard({
             price={price}
             small={true}
             startingPrice={type === 'wide' ? true : false}
+            shrink={type === 'wide' ? true : false}
           />
         </div>
         <p className="text-sm text-primary">{provider}</p>
         <CapsuleIndicator text={category} small={true} />
         {type === 'wide' && (
-          <p className="text-sm text-gray-500 two-line-ellipsis">
+          <p className="hidden text-sm text-gray-500 lg:two-line-ellipsis">
             {description}
           </p>
         )}

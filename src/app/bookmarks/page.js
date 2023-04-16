@@ -5,7 +5,7 @@ import { allCategories } from '@/utils/categories';
 import debounce from 'lodash.debounce';
 import { useState } from 'react';
 
-export default function Search() {
+export default function Bookmarks() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState({});
   const [results, setResults] = useState([
@@ -136,69 +136,24 @@ export default function Search() {
   const handleRatingChange = (selectedOption) => {
     setFilters({ ...filters, rating: selectedOption });
   };
-  const handleCategoryChange = (selectedOption) => {
-    setFilters({ ...filters, category: selectedOption });
-  };
 
   return (
     <div className="min-h-screen my-20">
       <div className="container screen-padding">
         <div className="flex flex-wrap relative">
-          {/* Search input and filters */}
           <div className="w-full lg:w-1/4">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-2 mb-4 h-10 bg-white border rounded-md"
-              placeholder="Search"
-            />
             <div className="mb-4">
               <label htmlFor="rating" className="label">
                 Category
               </label>
               <SelectField
                 id="category"
-                value={filters.category}
-                onChange={handleCategoryChange}
+                value={filters.rating}
+                onChange={handleRatingChange}
                 options={allCategories.map((category) => ({
                   value: category,
                   label: category,
                 }))}
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="price" className="label">
-                Price range
-              </label>
-              <SelectField
-                id="price"
-                value={filters.price}
-                onChange={handlePriceChange}
-                options={[
-                  { value: '', label: 'All' },
-                  { value: 'low', label: 'Low' },
-                  { value: 'medium', label: 'Medium' },
-                  { value: 'high', label: 'High' },
-                ]}
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="rating" className="label">
-                Rating
-              </label>
-              <SelectField
-                id="rating"
-                value={filters.rating}
-                onChange={handleRatingChange}
-                options={[
-                  { value: '', label: 'All' },
-                  { value: '1', label: '1+' },
-                  { value: '2', label: '2+' },
-                  { value: '3', label: '3+' },
-                  { value: '4', label: '4+' },
-                  { value: '5', label: '5' },
-                ]}
               />
             </div>
           </div>

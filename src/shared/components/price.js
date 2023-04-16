@@ -1,5 +1,3 @@
-// import '@/app/global.css';
-
 function Price({
   price,
   prefix,
@@ -7,6 +5,7 @@ function Price({
   currency = 'GH₵',
   small = false,
   bold = true,
+  shrink = false,
 }) {
   return (
     <div className="flex items-center gap-1">
@@ -35,9 +34,9 @@ function Price({
       </span>
       {startingPrice && (
         <span
-          className={`${bold ? 'font-bold' : ''} ${
-            small ? 'text-xs' : 'text-md'
-          }`}
+          className={`${shrink ? 'hidden lg:block' : 'block'} ${
+            bold ? 'font-bold' : ''
+          } ${small ? 'text-xs' : 'text-md'}`}
         >
           (Starting Price)
         </span>

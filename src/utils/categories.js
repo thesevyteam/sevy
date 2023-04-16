@@ -1,0 +1,17 @@
+export const allCategories = [
+  'All',
+  'Electrical',
+  'Plumbing',
+  'Moving',
+  'Cleaning',
+  'Painting',
+  'Laundry',
+  'Carpentry',
+  'Gardening',
+  'Appliances',
+  'Locksmithing',
+  'Masonry',
+  'Pool',
+  'Garbage',
+  'Other',
+];

@@ -258,10 +258,17 @@ abbr[title] {
   .input__bg {
     @apply appearance-none bg-primary-100 border border-gray-300 focus:border-primary focus:border-2 outline-none h-10 rounded-md w-full leading-tight focus:outline-none;
   }
+  .two-line-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    color-scheme: light dark;
   }
 }
