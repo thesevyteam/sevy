@@ -3,8 +3,10 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
-function ImageSlider({ images }) {
+const ImageSlider = ({ images }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const sliderSettings = {
@@ -19,24 +21,39 @@ function ImageSlider({ images }) {
       <div className={`slider-dot ${activeSlide === i ? 'active' : ''}`}></div>
     ),
   };
+
   return (
-    <Slider
-      {...sliderSettings}
-      className="bg-white rounded-md lg:rounded-md lg:shadow-md"
-    >
-      {images.map((image, index) => (
-        <div key={index} className="h-45vh lg:h-50vh overflow-hidden">
-          <Image
-            src={image}
-            alt={`Service image ${index + 1}`}
-            fill
-            style={{ objectFit: 'contain' }}
-            className="rounded-md"
-          />
-        </div>
-      ))}
-    </Slider>
+    <div className="w-full lg:rounded-md overflow-hidden">
+      <Slider {...sliderSettings}>
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="h-45vh lg:h-50vh relative bg-white lg:shadow-md lg:rounded-md overflow-hidden"
+          >
+            <Image
+              src={image}
+              alt={`Service image ${index + 1}`}
+              fill
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+                backgroundColor: getRandomColor(),
+              }}
+            />
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
-}
+};
 
 export default ImageSlider;
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}

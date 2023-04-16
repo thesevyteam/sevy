@@ -61,22 +61,40 @@ p {
 .flip-horizontal {
   transform: scaleX(-1);
 }
-
+.two-line-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.slick-slide > div {
+  width: 100%;
+}
+.slick-slide div {
+  outline: none;
+}
+.slick-dots li {
+  width: 10px !important;
+  height: 20px !important;
+}
 @layer components {
   body {
-    @apply text-primary-text bg-[#d8f3dc] m-auto;
+    @apply text-primary-text bg-[#ecffef] m-auto;
   }
   .screen-padding {
     @apply px-5 sm:px-8 lg:px-16;
-  }
-  .md-screen-padding {
-    @apply px-0 sm:px-8 lg:px-16;
   }
   .screen-padding-l {
     @apply pl-5 sm:pl-8 lg:pl-16;
   }
   .slider-dot {
-    @apply w-2 h-2 rounded-full bg-primary-100 cursor-pointer transition-all duration-300;
+    @apply w-1.5 h-1.5 rounded-full bg-primary-100 cursor-pointer transition-all duration-300;
   }
   .slider-dot.active {
     @apply bg-primary transform scale-150;

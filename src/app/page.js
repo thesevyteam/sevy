@@ -1,11 +1,16 @@
+'use client';
 import Button from '@/shared/components/button';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ServicesSection from './components/servicesSection';
 import TopRatedSection from './components/topRatedSection';
 
 function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div className="w-full mt-20">
       <div className="screen-padding flex w-full items-center h-50vh lg:h-75vh">
@@ -29,13 +34,19 @@ function Home() {
               type="search"
               className="flex-1 bg-white outline-none h-10 rounded-l-md px-2 text-primary-text"
               placeholder="What services are you looking for?"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
-            <Button
-              icon={
-                <FiSearch style={{ strokeWidth: '3', width: 18, height: 18 }} />
-              }
-              className="rounded-l-none px-4"
-            />
+            <Link href={`/search?q=${searchQuery}`}>
+              <Button
+                icon={
+                  <FiSearch
+                    style={{ strokeWidth: '3', width: 18, height: 18 }}
+                  />
+                }
+                className="rounded-l-none px-4"
+              />
+            </Link>
           </div>
         </div>
         {/* handyman img */}

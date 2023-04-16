@@ -7,10 +7,10 @@ import { MdHandshake } from 'react-icons/md';
 
 function ServiceInfo({ serviceInfo }) {
   return (
-    <div className="w-full bg-white rounded-md shadow-md flex flex-col p-2">
+    <div className="w-full bg-white lg:rounded-md lg:shadow-md flex flex-col p-5 sm:p-8 lg:p-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">{serviceInfo.name}</h2>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-2 md:gap-6 lg:gap-8">
           <div className="cursor-pointer">
             <BsBookmark
               className="text-primary hover:scale-110 hover:text-primary-900 active:scale-95 transition-all duration-200"
@@ -20,7 +20,6 @@ function ServiceInfo({ serviceInfo }) {
           <Button
             icon={<MdHandshake style={{ width: 20, height: 20 }} />}
             text="Book"
-            roundOnShrink={true}
           />
         </div>
       </div>

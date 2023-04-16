@@ -14,7 +14,7 @@ function CapsuleIndicator({
   return (
     <div
       className={`${className} ${
-        padding ? (small ? 'py-0.5 px-1.5' : 'py-1 px-2') : 'p-0'
+        padding ? (small ? 'py-0.5 px-1.5' : 'py-0.5 px-2') : 'p-0'
       } rounded-full justify-center items-center gap-1 w-fit ${
         bg &&
         'cursor-pointer bg-primary bg-opacity-30 hover:bg-primary-900 hover:bg-opacity-30'

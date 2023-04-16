@@ -93,17 +93,7 @@ function TopRatedSection() {
       <div className="w-full overflow-x-auto hide-scrollbar">
         <div className="screen-padding flex gap-4 min-w-min pb-10 whitespace-nowrap">
           {data.map((item) => (
-            <ProviderCard
-              id={item.id}
-              category={item.category}
-              key={item.id}
-              provider={item.provider}
-              rating={item.rating}
-              distance={item.distance}
-              price={item.price}
-              service={item.service}
-              img={item.img}
-            />
+            <ProviderCard key={item.id} data={item} />
           ))}
         </div>
       </div>
