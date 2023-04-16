@@ -51,7 +51,7 @@ function BasicInformation({
             First Name
           </label>
           <input
-            className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+            className="input__bg"
             id="fname"
             type="text"
             placeholder="Coco"
@@ -65,7 +65,7 @@ function BasicInformation({
             Last Name
           </label>
           <input
-            className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+            className="input__bg"
             id="lname"
             type="text"
             placeholder="Coleman"
@@ -80,7 +80,7 @@ function BasicInformation({
           Email
         </label>
         <input
-          className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+          className="input__bg"
           id="email"
           type="email"
           placeholder="abc@ijk.xyz"
@@ -100,7 +100,7 @@ function BasicInformation({
           Phone
         </label>
         <input
-          className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+          className="input__bg"
           id="phone"
           type="tel"
           placeholder="+233 000 000 000"
@@ -133,7 +133,7 @@ function BasicInformation({
             onCopy={() => {
               return false;
             }}
-            className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+            className="input__bg"
             id="password"
             type={showPassword ? 'text' : 'password'}
             placeholder="********"
@@ -161,7 +161,7 @@ function BasicInformation({
             onCopy={() => {
               return false;
             }}
-            className="appearance-none bg-primary-100 outline-none h-10 rounded-md border border-gray-300 w-full px-2 leading-tight focus:outline-none focus:border-primary"
+            className="input__bg"
             id="confirmPassword"
             type={showConfirmPassword ? 'text' : 'password'}
             placeholder="********"

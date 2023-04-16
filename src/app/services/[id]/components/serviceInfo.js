@@ -1,13 +1,34 @@
+'use client';
+import BookingModal from '@/shared/components/BookingModal';
 import Button from '@/shared/components/button';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Price from '@/shared/components/price';
 import Rating from '@/shared/components/rating';
+import { toggleBodyScroll } from '@/utils/scroll';
+import { useState } from 'react';
 import { BsBookmark } from 'react-icons/bs';
 import { MdHandshake } from 'react-icons/md';
 
 function ServiceInfo({ serviceInfo }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [closingModal, setClosingModal] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    toggleBodyScroll(true);
+  };
+
+  const closeModal = () => {
+    setClosingModal(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setClosingModal(false);
+      toggleBodyScroll(false);
+    }, 290);
+  };
+
   return (
-    <div className="w-full bg-white lg:rounded-md lg:shadow-md flex flex-col p-5 sm:p-8 lg:p-2">
+    <div className="w-full bg-white lg:rounded-md lg:shadow-md flex flex-col px-2 py-2  sm:px-6 lg:px-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">{serviceInfo.name}</h2>
         <div className="flex items-center gap-2 md:gap-6 lg:gap-8">
@@ -20,6 +41,7 @@ function ServiceInfo({ serviceInfo }) {
           <Button
             icon={<MdHandshake style={{ width: 20, height: 20 }} />}
             text="Book"
+            onClick={openModal}
           />
         </div>
       </div>
@@ -40,6 +62,12 @@ function ServiceInfo({ serviceInfo }) {
       <div>
         <p className="text-sm text-gray-500 mt-4">{serviceInfo.description}</p>
       </div>
+      <BookingModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        providerName={serviceInfo.provider.name}
+        closing={closingModal}
+      />
     </div>
   );
 }

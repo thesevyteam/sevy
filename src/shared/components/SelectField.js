@@ -1,11 +1,15 @@
 import Select from 'react-select';
 
-const SelectField = ({ id, options, value, onChange }) => {
+const SelectField = ({ id, options, value, onChange, onBg }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      // border: '1.2px solid transparent',
-      border: state.isFocused ? '1.5px solid #40916C' : '0px solid transparent',
+      backgroundColor: onBg ? '#D8F3DC' : 'white',
+      border: state.isFocused
+        ? '1.5px solid #40916C'
+        : onBg
+        ? '1px solid rgb(209 213 219)'
+        : '0px solid transparent',
       boxShadow: state.isFocused ? 0 : 0,
       '&:hover': {
         borderColor: state.isFocused ? 0 : 0,
@@ -45,7 +49,7 @@ const SelectField = ({ id, options, value, onChange }) => {
 
   return (
     <Select
-      className="rounded-md shadow-md hover:shadow-lg"
+      className={`rounded-md ${onBg ? '' : 'shadow-md hover:shadow-lg'}`}
       id={id}
       value={value}
       onChange={(selectedOption) => onChange(selectedOption)}

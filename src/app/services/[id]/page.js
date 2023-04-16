@@ -1,4 +1,3 @@
-import '@/app/globals.css';
 import Rating from '@/shared/components/rating';
 import ImageSlider from './components/imageSlider';
 import ReviewTile from './components/reviewTile';
@@ -176,7 +175,7 @@ const ServiceDetails = () => {
         </div>
         <div className="w-full lg:w-1/3 lg:pl-4 mt-4 lg:mt-0">
           <div className="w-full bg-white lg:rounded-md lg:shadow-md">
-            <div className="border-b flex gap-2 p-2 px-5 sm:px-8 text-lg items-center font-semibold">
+            <div className="border-b flex gap-2 lg:px-2 px-2 py-2 sm:px-6 text-lg items-center font-semibold">
               <Rating rating={4.5} /> (112 Reviews)
             </div>
             <div className="lg:max-h-screen overflow-y-auto hide-scrollbar">

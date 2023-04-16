@@ -19,8 +19,10 @@
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
     "react": "18.2.0",
+    "react-calendar": "^4.2.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "react-modal": "^3.16.1",
     "react-select": "^5.7.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"

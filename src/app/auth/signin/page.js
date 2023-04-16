@@ -53,11 +53,11 @@ function SignIn() {
         </div>
         <form className="w-4/5 md:w-3/5" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2" htmlFor="email">
+            <label className="label" htmlFor="email">
               Email
             </label>
             <input
-              className="appearance-none bg-white outline-none h-10 rounded-md shadow-md w-full px-2 leading-tight focus:outline-none"
+              className="input"
               id="email"
               type="email"
               placeholder="abc@ijk.xyz"
@@ -67,7 +67,7 @@ function SignIn() {
             />
           </div>
           <div className="mb-5">
-            <label className="block text-sm font-bold mb-2" htmlFor="password">
+            <label className="label" htmlFor="password">
               Password
             </label>
             <div className="flex w-full relative">
@@ -78,7 +78,7 @@ function SignIn() {
                 {showPassword ? <RiEye2Line /> : <RiEyeCloseLine />}
               </div>
               <input
-                className="appearance-none bg-white outline-none h-10 rounded-md shadow-md w-full px-2 mb-3 leading-tight focus:outline-none"
+                className="input mb-3"
                 id="password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="********"

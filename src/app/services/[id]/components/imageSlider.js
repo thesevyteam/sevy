@@ -23,7 +23,7 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="w-full lg:rounded-md overflow-hidden">
+    <div className="w-full">
       <Slider {...sliderSettings}>
         {images.map((image, index) => (
           <div
@@ -37,7 +37,7 @@ const ImageSlider = ({ images }) => {
               style={{
                 objectFit: 'cover',
                 objectPosition: 'center',
-                backgroundColor: getRandomColor(),
+                backgroundColor: '#40916c',
               }}
             />
           </div>
@@ -48,12 +48,3 @@ const ImageSlider = ({ images }) => {
 };
 
 export default ImageSlider;
-
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}

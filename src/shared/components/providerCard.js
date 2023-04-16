@@ -16,7 +16,7 @@ function ProviderCard({
     rating,
     price,
     distance,
-    description,
+    description = 'grttrrtrytr htdyrdtrdtr yd6trd',
   },
 }) {
   return (
@@ -67,11 +67,19 @@ function ProviderCard({
           >
             {service}
           </p>
-          <Price price={price} small={true} startingPrice={true} />
+          <Price
+            price={price}
+            small={true}
+            startingPrice={type === 'wide' ? true : false}
+          />
         </div>
         <p className="text-sm text-primary">{provider}</p>
         <CapsuleIndicator text={category} small={true} />
-        <p className="text-sm text-gray-500 two-line-ellipsis">{description}</p>
+        {type === 'wide' && (
+          <p className="text-sm text-gray-500 two-line-ellipsis">
+            {description}
+          </p>
+        )}
         <CapsuleIndicator
           location={true}
           text={distance ? distance + ' km away' : location}
