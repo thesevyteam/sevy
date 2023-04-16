@@ -141,7 +141,7 @@ export default function Search() {
       <div className="container screen-padding">
         <div className="flex flex-wrap relative">
           {/* Search input and filters */}
-          <div className="w-full md:w-1/4 md:sticky md:top-20">
+          <div className="w-full lg:w-1/4">
             <input
               type="text"
               value={searchQuery}
@@ -186,7 +186,7 @@ export default function Search() {
           </div>
 
           {/* Search results */}
-          <div className="w-full md:w-3/4 md:pl-8">
+          <div className="w-full lg:w-3/4 lg:pl-8">
             <div className="flex flex-col gap-4">
               {results.map((result) => (
                 <ProviderCard key={result.id} type="wide" data={result} />
