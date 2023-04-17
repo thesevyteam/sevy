@@ -36,7 +36,7 @@ const Appointments = () => {
     <div className="my-20 min-h-screen screen-padding">
       <div className="flex flex-wrap w-full">
         <div className="w-full lg:w-1/4">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Filters</h2>
+          <h2 className="text-xl font-semibold mb-4">Filters</h2>
           <div className="space-y-2">
             <button
               onClick={() => setFilter('all')}

@@ -131,6 +131,9 @@ p {
   line-height: 1.125em;
   border: none;
 }
+.react-calendar__navigation {
+  gap: 8px;
+}
 .react-calendar__navigation button {
   color: #40916c;
   min-width: 44px;
@@ -256,7 +259,7 @@ abbr[title] {
     @apply appearance-none bg-white outline-none h-10 rounded-md shadow-md w-full px-2 leading-tight focus:outline-none;
   }
   .input__bg {
-    @apply appearance-none bg-primary-100 border border-gray-300 focus:border-primary focus:border-2 outline-none h-10 rounded-md w-full leading-tight focus:outline-none;
+    @apply appearance-none bg-primary-100 border border-gray-300 focus:border-primary focus:border-2 outline-none h-10 px-2 rounded-md w-full leading-tight focus:outline-none;
   }
   .two-line-ellipsis {
     overflow: hidden;
@@ -266,7 +269,7 @@ abbr[title] {
     -webkit-box-orient: vertical;
   }
   .card {
-    @apply bg-white rounded-md shadow-md p-3 hover:shadow-lg transition-all duration-300;
+    @apply bg-white rounded-md shadow-md p-3 hover:shadow-lg transition-all duration-300 cursor-default;
   }
   .shadow-t-md {
     @apply shadow-[0_-4px_6px_-2px_rgba(0,0,0,0.3)];

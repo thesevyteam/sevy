@@ -55,11 +55,11 @@ function SignUp() {
       <div className="w-full max-w-md p-2 md:p-4 bg-white lg:rounded-md lg:shadow-md">
         {components[step]}
       </div>
-      <div className="w-full max-w-md flex justify-between items-center mt-4">
+      <div className="p-2 md:p-4 lg:p-0 w-full max-w-md flex justify-between items-center mt-4">
         <Button
           text={'Back'}
           className={`${step > 0 ? 'visible' : 'invisible'}`}
-          icon={<IoIosArrowRoundBack style={{ width: 20, height: 20 }} />}
+          icon={<IoIosArrowRoundBack style={{ width: 16, height: 16 }} />}
           onClick={() => setStep((prevStep) => prevStep - 1)}
           shrink={true}
           roundOnShrink={true}
@@ -70,7 +70,7 @@ function SignUp() {
           className={`${
             step < components.length - 1 ? 'visible' : 'invisible'
           }`}
-          icon={<IoIosArrowRoundForward style={{ width: 20, height: 20 }} />}
+          icon={<IoIosArrowRoundForward style={{ width: 16, height: 16 }} />}
           iconPlacement="right"
           onClick={() => setStep((prevStep) => prevStep + 1)}
           shrink={true}

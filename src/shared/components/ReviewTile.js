@@ -3,7 +3,7 @@ const { default: Image } = require('next/image');
 
 function ReviewTile({ review }) {
   return (
-    <div className="w-full border-b px-2 py-2 sm:px-6">
+    <div className="w-full border-b lg:px-2 px-2 py-2 sm:px-6">
       <div className="flex gap-2">
         <div className="w-10 h-10 rounded-full overflow-hidden">
           <Image

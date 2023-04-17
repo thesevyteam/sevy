@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BsX } from 'react-icons/bs';
+import { BsXLg } from 'react-icons/bs';
 import { GiTakeMyMoney } from 'react-icons/gi';
 import Modal from 'react-modal';
 import AppCalendar from './Calendar';
@@ -74,7 +74,7 @@ const BookingModal = ({
             Book {providerName}&apos;s Service
           </h2>
           <button onClick={closeModal}>
-            <BsX style={{ width: 30, height: 30 }} />
+            <BsXLg style={{ width: 20, height: 20 }} />
           </button>
         </div>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">

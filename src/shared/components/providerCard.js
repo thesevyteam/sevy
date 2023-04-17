@@ -1,11 +1,16 @@
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BsPauseFill } from 'react-icons/bs';
+import { MdDelete, MdModeEditOutline } from 'react-icons/md';
+import Button from './button';
 import Price from './price';
 import Rating from './rating';
 
+const iconStyle = { width: 16, height: 16 };
 function ProviderCard({
   type = 'default',
+  width = 'w-56',
   data: {
     id,
     img,
@@ -17,17 +22,33 @@ function ProviderCard({
     price,
     distance,
     description = 'grttrrtrytr htdyrdtrdtr yd6trd',
+    owner = false,
   },
 }) {
   return (
     <Link
       href={`/services/${id}`}
-      className={`flex ${
+      className={`group flex ${
         type === 'wide'
           ? 'w-full flex-col lg:flex-row lg:h-48'
-          : 'flex-col w-56'
+          : `flex-col ${width}`
       } relative rounded-md shadow-md bg-white overflow-hidden cursor-pointer hover:shadow-lg`}
     >
+      {owner && (
+        <div className="z-[5] absolute top-0 right-0 bottom-0 left-0 transparent group-hover:backdrop-blur-md invisible flex flex-col gap-2 justify-center items-center group-hover:visible">
+          <Button text="Edit" icon={<MdModeEditOutline style={iconStyle} />} />
+          <Button
+            text="Pause"
+            color="bg-orange-400 hover:bg-orange-500"
+            icon={<BsPauseFill style={iconStyle} />}
+          />
+          <Button
+            text="Delete"
+            color="bg-primary-red hover:bg-primary-red-600"
+            icon={<MdDelete style={iconStyle} />}
+          />
+        </div>
+      )}
       <div
         className={`relative overflow-hidden ${
           type === 'wide'
