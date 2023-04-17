@@ -35,18 +35,26 @@ function ProviderCard({
       } relative rounded-md shadow-md bg-white overflow-hidden cursor-pointer hover:shadow-lg`}
     >
       {owner && (
-        <div className="z-[5] absolute top-0 right-0 bottom-0 left-0 transparent group-hover:backdrop-blur-md invisible flex flex-col gap-2 justify-center items-center group-hover:visible">
-          <Button text="Edit" icon={<MdModeEditOutline style={iconStyle} />} />
-          <Button
-            text="Pause"
-            color="bg-orange-400 hover:bg-orange-500"
-            icon={<BsPauseFill style={iconStyle} />}
-          />
-          <Button
-            text="Delete"
-            color="bg-primary-red hover:bg-primary-red-600"
-            icon={<MdDelete style={iconStyle} />}
-          />
+        <div className="z-[5] absolute top-0 right-0 bottom-0 left-0 transparent group-hover:backdrop-blur-md invisible flex flex-col justify-center items-center group-hover:visible">
+          <div className="flex flex-col gap-2">
+            <Button
+              text="Edit"
+              icon={<MdModeEditOutline style={iconStyle} />}
+              className={'w-full'}
+            />
+            <Button
+              text="Pause"
+              color="bg-orange-400 hover:bg-orange-500"
+              icon={<BsPauseFill style={iconStyle} />}
+              className={'w-full'}
+            />
+            <Button
+              text="Delete"
+              color="bg-primary-red hover:bg-primary-red-600"
+              icon={<MdDelete style={iconStyle} />}
+              className={'w-full'}
+            />
+          </div>
         </div>
       )}
       <div

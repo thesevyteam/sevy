@@ -211,6 +211,32 @@ abbr[title] {
   color: white;
 }
 
+.tray-open {
+  animation: slideIn 300ms forwards;
+}
+
+.tray-close {
+  animation: slideOut 300ms forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
 @keyframes slideDown {
   0% {
     transform: translate(-50%, -100%);

@@ -10,7 +10,7 @@ const details = {
   lastSeen: 'Last seen 2 hours ago',
   location: 'Accra, Ghana',
   image:
-    'https://lh3.googleusercontent.com/ogw/AAEL6sgzhAdzY5doX3BSkEUnulrXEs1OSOMDeuzB96KTlw=s32-c-mo',
+    'https://pictures-ghana.jijistatic.com/22729315_MjAwLTIwMC1kZTE0NDQ4Yzc2.jpg',
   dateCreated: 'Joined 2 years ago',
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ',
 };

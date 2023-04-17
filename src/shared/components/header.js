@@ -10,6 +10,7 @@ import {
   BsFillExclamationDiamondFill,
 } from 'react-icons/bs';
 import { RiNotificationFill } from 'react-icons/ri';
+import NotificationTray from './NotificationTray';
 import Button from './button';
 import CapsuleIndicator from './capsuleIndicator';
 import Logo from './logo';
@@ -19,6 +20,8 @@ const iconStyle = { width: 16, height: 16 };
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isTrayOpen, setIsTrayOpen] = useState(false);
+
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setIsScrolled(true) : setIsScrolled(false);
   };
@@ -48,12 +51,21 @@ function Header() {
           icon={<BsCalendarWeekFill style={iconStyle} />}
         />
         <NavIcon
-          href={'notifications'}
           shadow={showShadow ? !isScrolled : false}
-          icon={<RiNotificationFill style={iconStyle} />}
+          icon={
+            <RiNotificationFill style={iconStyle} onClick={handleTrayOpen} />
+          }
         />
       </>
     );
+  };
+
+  const handleTrayOpen = () => {
+    setIsTrayOpen(true);
+  };
+
+  const handleTrayClose = () => {
+    setIsTrayOpen(false);
   };
 
   return (
@@ -92,10 +104,11 @@ function Header() {
             href={'profile'}
             img={
               <Image
-                src="https://lh3.googleusercontent.com/ogw/AAEL6sgzhAdzY5doX3BSkEUnulrXEs1OSOMDeuzB96KTlw=s32-c-mo"
+                src="https://pictures-ghana.jijistatic.com/22729315_MjAwLTIwMC1kZTE0NDQ4Yzc2.jpg"
                 width="40"
                 height="40"
                 alt="Your Profile Picture"
+                className="rounded-full"
               />
             }
           />
@@ -104,6 +117,7 @@ function Header() {
       <div className="bottom-0 fixed h-14 inset-x-0 flex lg:hidden justify-between items-center z-50 px-2 sm:px-6 bg-primary shadow-t-md">
         {navBtns(false)}
       </div>
+      <NotificationTray isOpen={isTrayOpen} handleClose={handleTrayClose} />
     </>
   );
 }
