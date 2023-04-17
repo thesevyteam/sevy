@@ -101,7 +101,7 @@ function Header() {
           />
         </div>
       </header>
-      <div className="bottom-0 fixed h-14 inset-x-0 flex lg:hidden justify-between items-center z-50 px-2 sm:px-6 bg-primary shadow-[0_-4px_6px_-2px_rgba(0,0,0,0.3)]">
+      <div className="bottom-0 fixed h-14 inset-x-0 flex lg:hidden justify-between items-center z-50 px-2 sm:px-6 bg-primary shadow-t-md">
         {navBtns(false)}
       </div>
     </>

@@ -20,7 +20,7 @@ function Home() {
             text="Cape Coast, GH"
             location={true}
           />
-          <div className="text-7xl font-bold flex cursor-default">
+          <div className="mt-3 lg:mt-0 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold flex cursor-default">
             <h1>
               Get it done{' '}
               <span className="text-primary tracking-wide">Right</span>

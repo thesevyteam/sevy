@@ -232,7 +232,7 @@ abbr[title] {
 
 @layer components {
   body {
-    @apply text-primary-text bg-[#ecffef] m-auto;
+    @apply text-primary-text bg-bg m-auto;
   }
   .screen-padding {
     @apply px-2 sm:px-6 lg:px-16;
@@ -264,6 +264,12 @@ abbr[title] {
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+  .card {
+    @apply bg-white rounded-md shadow-md p-3 hover:shadow-lg transition-all duration-300;
+  }
+  .shadow-t-md {
+    @apply shadow-[0_-4px_6px_-2px_rgba(0,0,0,0.3)];
   }
 }
 
