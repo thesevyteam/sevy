@@ -1,5 +1,6 @@
 'use client';
-import BookingModal from '@/shared/components/BookingModal';
+import AppModal from '@/shared/components/AppModal';
+import Booking from '@/shared/components/Booking';
 import Button from '@/shared/components/button';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Price from '@/shared/components/price';
@@ -62,12 +63,16 @@ function ServiceInfo({ serviceInfo }) {
       <div>
         <p className="text-sm text-gray-500 mt-4">{serviceInfo.description}</p>
       </div>
-      <BookingModal
+      <AppModal
         isOpen={isModalOpen}
-        closeModal={closeModal}
-        providerName={serviceInfo.provider.name}
         closing={closingModal}
-      />
+        closeModal={closeModal}
+      >
+        <Booking
+          providerName={serviceInfo.provider.name}
+          closeModal={closeModal}
+        />
+      </AppModal>
     </div>
   );
 }

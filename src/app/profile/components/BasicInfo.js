@@ -15,7 +15,7 @@ const BasicInfo = ({ details }) => {
           alt="Profile Picture"
           className="rounded-full "
         />
-        <div className="absolute bottom-0 right-0 bg-primary text-white rounded-full h-8 w-8 flex items-center justify-center">
+        <div className="cursor-pointer absolute bottom-0 right-0 shadow-md hover:shadow-lg bg-primary text-white rounded-full h-8 w-8 flex items-center justify-center">
           <TiCamera />
         </div>
       </div>

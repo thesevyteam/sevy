@@ -1,6 +1,7 @@
 'use client';
 
 import '@/app/globals.css';
+import { toggleBodyScroll } from '@/utils/scroll';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import {
@@ -10,6 +11,8 @@ import {
   BsFillExclamationDiamondFill,
 } from 'react-icons/bs';
 import { RiNotificationFill } from 'react-icons/ri';
+import AppModal from './AppModal';
+import EmergencyBooking from './EmergencyBooking';
 import NotificationTray from './NotificationTray';
 import Button from './button';
 import CapsuleIndicator from './capsuleIndicator';
@@ -21,6 +24,8 @@ const iconStyle = { width: 16, height: 16 };
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTrayOpen, setIsTrayOpen] = useState(false);
+  const [emergencyModalOpen, setEmergencyModalOpen] = useState(false);
+  const [closingEmergencyModal, setClosingEmergencyModal] = useState(false);
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setIsScrolled(true) : setIsScrolled(false);
@@ -68,6 +73,20 @@ function Header() {
     setIsTrayOpen(false);
   };
 
+  const openEmergencyModal = () => {
+    setEmergencyModalOpen(true);
+    toggleBodyScroll(true);
+  };
+
+  const closeEmergencyModal = () => {
+    setClosingEmergencyModal(true);
+    setTimeout(() => {
+      setEmergencyModalOpen(false);
+      setClosingEmergencyModal(false);
+      toggleBodyScroll(false);
+    }, 290);
+  };
+
   return (
     <>
       <header
@@ -96,6 +115,7 @@ function Header() {
             icon={<BsFillExclamationDiamondFill />}
             shrink={true}
             roundOnShrink={true}
+            onClick={openEmergencyModal}
           />
           <div className="hidden lg:flex justify-center items-center gap-5">
             {navBtns()}
@@ -118,6 +138,13 @@ function Header() {
         {navBtns(false)}
       </div>
       <NotificationTray isOpen={isTrayOpen} handleClose={handleTrayClose} />
+      <AppModal
+        isOpen={emergencyModalOpen}
+        closing={closingEmergencyModal}
+        closeModal={closeEmergencyModal}
+      >
+        <EmergencyBooking closeModal={closeEmergencyModal} />
+      </AppModal>
     </>
   );
 }
