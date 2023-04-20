@@ -1,7 +1,7 @@
 'use client';
 
 import CheckboxTile from '@/shared/components/CheckboxTile';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiEye2Line, RiEyeCloseLine } from 'react-icons/ri';
 
 function BasicInformation({
@@ -21,8 +21,11 @@ function BasicInformation({
   const [showPassWordsDoNotMatchError, setShowPassWordDoNotMatchError] =
     useState(false);
 
-  const handleChange = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    handleChange();
+  }, [fname, lname, phone, password, confirmPassword]);
+
+  const handleChange = () => {
     if (
       confirmPassword !== '' &&
       password.substring(0, confirmPassword.length) !== confirmPassword
@@ -31,7 +34,7 @@ function BasicInformation({
     } else {
       setShowPassWordDoNotMatchError(false);
     }
-    setBasicInfo({ fname, lname, phone, password });
+    setBasicInfo({ fname, lname, phone, password, confirmPassword });
   };
 
   const setEmailPrimaryContact = () => {
@@ -43,7 +46,7 @@ function BasicInformation({
   };
 
   return (
-    <form className="space-y-4" onChange={handleChange}>
+    <form className="space-y-4">
       <p className="text-lg font-bold tracking-wide">Basic Information</p>
       <div className="flex w-full gap-2">
         <div className="">
@@ -162,6 +165,7 @@ function BasicInformation({
               return false;
             }}
             className="input__bg"
+            autoComplete="off"
             id="confirmPassword"
             type={showConfirmPassword ? 'text' : 'password'}
             placeholder="********"

@@ -6,7 +6,7 @@ const ContactList = ({ contacts, selectedContact, selectContact }) => {
   };
 
   return (
-    <div className="">
+    <div className="lg:px-0 px-2">
       <h2 className="text-lg font-semibold mb-4">Chats</h2>
       <ul>
         {contacts.map((contact) => (

@@ -1,5 +1,4 @@
 import ProviderCard from '@/shared/components/providerCard';
-import '../globals.css';
 
 const data = [
   {

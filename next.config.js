@@ -3,6 +3,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  rewrites: async () => [
+    {
+      source: '/api/auth/:path*',
+      destination: `${process.env.SERVER_URL}/:path*`,
+    },
+  ],
   images: {
     domains: [
       'lh3.googleusercontent.com',

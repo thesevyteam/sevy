@@ -1,4 +1,4 @@
-'use client';
+'use customer';
 
 import { BsTools } from 'react-icons/bs';
 import { HiUser } from 'react-icons/hi';
@@ -10,19 +10,19 @@ function AccountTypeSelection({ accountType, setAccountType }) {
       <div className="flex gap-4 w-full">
         <button
           className={`border-2 border-gray-300 w-1/2 h-44 rounded-md flex flex-col gap-3 items-center justify-center p-2 ${
-            accountType === 'provider' ? 'border-primary' : 'border-gray-300'
+            accountType === 'handyman' ? 'border-primary' : 'border-gray-300'
           }`}
-          onClick={() => setAccountType('provider')}
+          onClick={() => setAccountType('handyman')}
         >
           <BsTools
             style={{ width: 32, height: 32 }}
             className={`${
-              accountType === 'provider' ? 'text-primary' : 'text-gray-400'
+              accountType === 'handyman' ? 'text-primary' : 'text-gray-400'
             }`}
           />
           <span
             className={`my-1 text-sm lg:text-base ${
-              accountType === 'provider' ? 'text-primary' : 'text-gray-400'
+              accountType === 'handyman' ? 'text-primary' : 'text-gray-400'
             }`}
           >
             I&apos;m a Service Provider
@@ -30,22 +30,22 @@ function AccountTypeSelection({ accountType, setAccountType }) {
         </button>
         <button
           className={`border-2 border-gray-300 w-1/2 h-44 rounded-md flex flex-col gap-3 items-center justify-center ${
-            accountType === 'client' ? 'border-primary' : 'border-gray-300'
+            accountType === 'customer' ? 'border-primary' : 'border-gray-300'
           }`}
-          onClick={() => setAccountType('client')}
+          onClick={() => setAccountType('customer')}
         >
           <HiUser
             style={{ width: 32, height: 32 }}
             className={`${
-              accountType === 'client' ? 'text-primary' : 'text-gray-400'
+              accountType === 'customer' ? 'text-primary' : 'text-gray-400'
             }`}
           />
           <span
             className={`my-1 text-sm lg:text-base ${
-              accountType === 'client' ? 'text-primary' : 'text-gray-400'
+              accountType === 'customer' ? 'text-primary' : 'text-gray-400'
             }`}
           >
-            I&apos;m a Client
+            I&apos;m a Customer
           </span>
         </button>
       </div>

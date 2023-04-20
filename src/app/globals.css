@@ -42,12 +42,12 @@ p {
 ::-moz-selection {
   /* Code for Firefox */
   color: white;
-  background: #40916c;
+  background: #2d6a4f;
 }
 
 ::selection {
   color: white;
-  background: #40916c;
+  background: #2d6a4f;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -304,6 +304,6 @@ abbr[title] {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: light dark;
+    color-scheme: light;
   }
 }

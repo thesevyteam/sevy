@@ -1,8 +1,8 @@
 'use client';
+import { protectedRoute } from '@/api/auth';
 import Button from '@/shared/components/button';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ServicesSection from './components/servicesSection';
@@ -10,6 +10,15 @@ import TopRatedSection from './components/topRatedSection';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
+
+  async function test() {
+    try {
+      const response = await protectedRoute();
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="w-full mt-20">
@@ -37,16 +46,15 @@ function Home() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
-            <Link href={`/search?q=${searchQuery}`}>
-              <Button
-                icon={
-                  <FiSearch
-                    style={{ strokeWidth: '3', width: 18, height: 18 }}
-                  />
-                }
-                className="rounded-l-none px-4"
-              />
-            </Link>
+            {/* <Link href={`/search?q=${searchQuery}`}> */}
+            <Button
+              icon={
+                <FiSearch style={{ strokeWidth: '3', width: 18, height: 18 }} />
+              }
+              className="rounded-l-none px-4"
+              onClick={test}
+            />
+            {/* </Link> */}
           </div>
         </div>
         {/* handyman img */}
