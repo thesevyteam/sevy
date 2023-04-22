@@ -142,7 +142,7 @@ const ReviewsSection = () => {
       <div className="border-b flex gap-2 lg:px-2 px-2 py-2 sm:px-6 text-lg items-center font-semibold">
         <Rating rating={4.5} /> (112 Reviews)
       </div>
-      <div className="lg:max-h-screen overflow-y-auto hide-scrollbar">
+      <div className="lg:max-h-screen hide-scrollbar">
         {reviews.map((review, index) => (
           <ReviewTile key={index} review={review} />
         ))}

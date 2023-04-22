@@ -1,8 +1,8 @@
-import BasicInfo from '../(protected)/profile/components/BasicInfo';
-import BioSection from '../(protected)/profile/components/BioSection';
-import ReviewsSection from '../(protected)/profile/components/ReviewsSection';
-import Services from '../(protected)/profile/components/Services';
-import SkillsSection from '../(protected)/profile/components/SkillsSection';
+import BasicInfo from './components/BasicInfo';
+import BioSection from './components/BioSection';
+import ReviewsSection from './components/ReviewsSection';
+import Services from './components/Services';
+import SkillsSection from './components/SkillsSection';
 
 const details = {
   name: 'John Doe',

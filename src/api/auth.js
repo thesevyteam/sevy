@@ -45,7 +45,7 @@ export async function resendOTP(email, phone, primary_contact, uid) {
   }
 }
 
-export async function refreshToken() {
+export async function refreshJWTToken() {
   try {
     const response = await axios.post(
       '/api/auth/refresh',
@@ -55,6 +55,30 @@ export async function refreshToken() {
     return response.data;
   } catch (error) {
     console.error('Error refreshing token:', error);
+    throw error;
+  }
+}
+
+export async function sendHandymanProfileInfo(data) {
+  try {
+    const response = await axios.post('/api/auth/set-handyman-profile', data, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error Adding Info:', error);
+    throw error;
+  }
+}
+
+export async function sendHandymanIDInfo(data) {
+  try {
+    const response = await axios.post('/api/auth/upload-id', data, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error Adding Info:', error);
     throw error;
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import '@/app/globals.css';
+import { useAuth } from '@/context/AuthContext';
 import { toggleBodyScroll } from '@/utils/scroll';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -26,7 +27,7 @@ function Header() {
   const [isTrayOpen, setIsTrayOpen] = useState(false);
   const [emergencyModalOpen, setEmergencyModalOpen] = useState(false);
   const [closingEmergencyModal, setClosingEmergencyModal] = useState(false);
-
+  const { user } = useAuth();
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setIsScrolled(true) : setIsScrolled(false);
   };
@@ -86,7 +87,7 @@ function Header() {
       toggleBodyScroll(false);
     }, 290);
   };
-
+  console.log(user);
   return (
     <>
       <header
@@ -124,7 +125,7 @@ function Header() {
             href={'profile'}
             img={
               <Image
-                src="https://pictures-ghana.jijistatic.com/22729315_MjAwLTIwMC1kZTE0NDQ4Yzc2.jpg"
+                src={user?.profile_picture}
                 width="40"
                 height="40"
                 alt="Your Profile Picture"

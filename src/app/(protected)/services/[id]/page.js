@@ -1,7 +1,7 @@
 import ImageSlider from '@/shared/components/ImageSlider';
 import ReviewTile from '@/shared/components/ReviewTile';
 import Rating from '@/shared/components/rating';
-import ServiceInfo from '../../(protected)/services/[id]/components/serviceInfo';
+import ServiceInfo from './components/serviceInfo';
 
 const ServiceDetails = () => {
   const images = [

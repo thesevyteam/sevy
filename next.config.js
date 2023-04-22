@@ -11,6 +11,7 @@ const nextConfig = {
   ],
   images: {
     domains: [
+      'res.cloudinary.com',
       'lh3.googleusercontent.com',
       'pictures-ghana.jijistatic.com',
       'images.unsplash.com',

@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import ChatArea from '../(protected)/chats/components/ChatArea';
-import ContactList from '../(protected)/chats/components/ContactList';
-import SelectedContactInfo from '../(protected)/chats/components/SelectedContactInfo';
+import ChatArea from './components/ChatArea';
+import ContactList from './components/ContactList';
+import SelectedContactInfo from './components/SelectedContactInfo';
 
 const contacts = [
   {

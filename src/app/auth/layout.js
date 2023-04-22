@@ -1,12 +1,10 @@
-import { AuthContextProvider } from '@/context/AuthContext';
+import '@/app/globals.css';
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <head />
-      <AuthContextProvider>
-        <body>{children}</body>
-      </AuthContextProvider>
+      <body>{children}</body>
     </html>
   );
 }

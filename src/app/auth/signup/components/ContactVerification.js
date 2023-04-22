@@ -18,7 +18,7 @@ function ContactVerification({ contact, contactType, goTo }) {
       console.log(response);
     } catch (error) {
       console.error('Error submitting OTP:', error);
-      setError(error.message);
+      setError(error.response.data.error);
     }
   };
 
@@ -34,7 +34,7 @@ function ContactVerification({ contact, contactType, goTo }) {
       console.log(response);
     } catch (error) {
       console.error('Error resetting OTP:', error);
-      setError(error.message);
+      setError(error.response.data.error);
     }
   };
 

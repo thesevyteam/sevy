@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import AppointmentCard from '../(protected)/appointments/components/AppointmentCard';
+import AppointmentCard from './components/AppointmentCard';
 
 const Appointments = () => {
   const appointments = [

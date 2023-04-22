@@ -1,6 +1,6 @@
 import Select from 'react-select';
 
-const SelectField = ({ id, options, value, onChange, onBg }) => {
+const SelectField = ({ id, options, value, onChange, onBg, isMulti }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -15,7 +15,15 @@ const SelectField = ({ id, options, value, onChange, onBg }) => {
         borderColor: state.isFocused ? 0 : 0,
       },
       borderRadius: '0.375rem',
-      height: '2.5rem',
+      minHeight: '2.5rem',
+    }),
+    multiValue: (styles) => ({
+      ...styles,
+      backgroundColor: 'white',
+      borderRadius: '0.375rem',
+      padding: '3PX',
+      color: '#545454',
+      border: '0.5px solid #40916c',
     }),
     option: (provided, state) => ({
       ...provided,
@@ -54,6 +62,7 @@ const SelectField = ({ id, options, value, onChange, onBg }) => {
       value={value}
       onChange={(selectedOption) => onChange(selectedOption)}
       options={options}
+      isMulti={isMulti}
       styles={customStyles}
     />
   );
