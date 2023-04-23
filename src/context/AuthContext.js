@@ -13,8 +13,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
-
-  // const unprotectedRoutes = ['/auth/signin', '/auth/signup', '/forgot-password', '/', '/u/[profile]', '/p/[post]']
+  const [loading, setLoading] = useState(true);
 
   const refreshToken = useCallback(async () => {
     try {
@@ -23,6 +22,8 @@ export const AuthContextProvider = ({ children }) => {
       setUser(response.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
 
     // call refreshToken every 15 minutes to renew the authentication token.
@@ -34,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [refreshToken]);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, loading }}>
       {children}
     </AuthContext.Provider>
   );
