@@ -3,6 +3,10 @@
     {
       "source": "/api/auth/:path*",
       "destination": "https://auth-sevy.herokuapp.com/:path*"
+    },
+    {
+      "source": "/api/booking/:path*",
+      "destination": "https://booking-sevy.herokuapp.com/:path*"
     }
   ]
 }

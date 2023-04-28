@@ -161,10 +161,16 @@ export default function Search() {
                 id="category"
                 value={filters.category}
                 onChange={handleCategoryChange}
-                options={allCategories.map((category) => ({
-                  value: category,
-                  label: category,
-                }))}
+                options={[
+                  {
+                    value: '',
+                    label: 'All',
+                  },
+                  ...allCategories.map((category) => ({
+                    value: category,
+                    label: category,
+                  })),
+                ]}
               />
             </div>
             <div className="mb-4">

@@ -1,26 +1,34 @@
+// import { getUser } from '@/api/auth';
+import axios from 'axios';
 import BasicInfo from './components/BasicInfo';
 import BioSection from './components/BioSection';
 import ReviewsSection from './components/ReviewsSection';
 import Services from './components/Services';
 import SkillsSection from './components/SkillsSection';
 
-const details = {
-  name: 'John Doe',
-  jobTitle: 'Web Developer',
-  lastSeen: 'Last seen 2 hours ago',
-  location: 'Accra, Ghana',
-  image:
-    'https://pictures-ghana.jijistatic.com/22729315_MjAwLTIwMC1kZTE0NDQ4Yzc2.jpg',
-  dateCreated: 'Joined 2 years ago',
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod ',
-};
+async function getUser(uid) {
+  try {
+    const response = await axios.get(
+      `${process.env.AUTH_SERVER_URL}/users/${uid}`,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetchin OTP:', error);
+    throw error;
+  }
+}
 
-const Profile = () => {
+export default async function Profile({ params }) {
+  const { data } = await getUser(params.uid);
+
   return (
     <div className="min-h-screen my-20 screen-padding">
       <div className="w-full flex flex-col lg:flex-row gap-4">
         <div className="w-full lg:w-1/3 space-y-4">
-          <BasicInfo details={details} />
+          <BasicInfo details={data} />
           <BioSection />
           <SkillsSection />
           <ReviewsSection />
@@ -31,6 +39,4 @@ const Profile = () => {
       </div>
     </div>
   );
-};
-
-export default Profile;
+}

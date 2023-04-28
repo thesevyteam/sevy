@@ -6,7 +6,11 @@ const nextConfig = {
   rewrites: async () => [
     {
       source: '/api/auth/:path*',
-      destination: `${process.env.SERVER_URL}/:path*`,
+      destination: `${process.env.AUTH_SERVER_URL}/:path*`,
+    },
+    {
+      source: '/api/lbs/:path*',
+      destination: `${process.env.LOCATION_BASED_SERVER_URL}/:path*`,
     },
   ],
   images: {

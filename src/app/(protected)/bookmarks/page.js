@@ -150,10 +150,16 @@ export default function Bookmarks() {
                 id="category"
                 value={filters.rating}
                 onChange={handleRatingChange}
-                options={allCategories.map((category) => ({
-                  value: category,
-                  label: category,
-                }))}
+                options={[
+                  {
+                    value: '',
+                    label: 'All',
+                  },
+                  ...allCategories.map((category) => ({
+                    value: category,
+                    label: category,
+                  })),
+                ]}
               />
             </div>
           </div>

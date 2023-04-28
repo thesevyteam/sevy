@@ -94,3 +94,15 @@ export async function protectedRoute() {
     throw error;
   }
 }
+
+export async function getUser(uid) {
+  try {
+    const response = await axios.get(`/api/auth/users/${uid}`, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw error;
+  }
+}

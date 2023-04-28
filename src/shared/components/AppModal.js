@@ -2,7 +2,13 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('body');
 
-const AppModal = ({ children, isOpen, closeModal, closing }) => {
+const AppModal = ({
+  children,
+  isOpen,
+  closeModal,
+  closing,
+  shouldCloseOnOverlayClick = true,
+}) => {
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -23,7 +29,12 @@ const AppModal = ({ children, isOpen, closeModal, closing }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+    >
       {children}
     </Modal>
   );

@@ -36,7 +36,7 @@ function SignIn() {
       console.log('User logged in:', response);
       setError('');
     } catch (error) {
-      setError(error.message);
+      setError(error.response.data.error);
       console.error('Error registering user:', error);
       setLoading(false);
     }
@@ -80,6 +80,7 @@ function SignIn() {
             </div>
             <form className="w-4/5 md:w-3/5" onSubmit={handleSubmit}>
               <div className="mb-4">
+                {error && <p className="error my-3 text-center">{error}</p>}
                 <label className="label" htmlFor="email">
                   Email
                 </label>

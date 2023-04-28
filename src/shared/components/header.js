@@ -87,7 +87,7 @@ function Header() {
       toggleBodyScroll(false);
     }, 290);
   };
-  console.log(user);
+
   return (
     <>
       <header
@@ -122,7 +122,7 @@ function Header() {
             {navBtns()}
           </div>
           <NavIcon
-            href={'profile'}
+            href={`profile/${user?.uid}`}
             img={
               <Image
                 src={user?.profile_picture}

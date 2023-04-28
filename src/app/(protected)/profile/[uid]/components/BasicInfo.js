@@ -9,7 +9,7 @@ const BasicInfo = ({ details }) => {
     <div className="card flex flex-col justify-center items-center space-y-2">
       <div className="relative">
         <Image
-          src={details.image}
+          src={details.profile_picture}
           width={142}
           height={142}
           alt="Profile Picture"
@@ -19,16 +19,16 @@ const BasicInfo = ({ details }) => {
           <TiCamera />
         </div>
       </div>
-      <h2 className="text-xl font-bold">{details.name}</h2>
+      <h2 className="text-xl font-bold">{`${details.first_name} ${details.last_name}`}</h2>
       <p className="">{details.jobTitle}</p>
       <CapsuleIndicator
         location={true}
-        text={details.location}
+        text={details.city}
         bg={false}
         padding={false}
       />
       <p className="">{details.lastSeen}</p>
-      <p className="">{details.dateCreated}</p>
+      <p className="">{details.createdAt}</p>
       <Button
         text="Chat"
         icon={<BsFillChatLeftFill style={{ width: 16, height: 16 }} />}

@@ -1,5 +1,4 @@
 export const allCategories = [
-  'All',
   'Electrical',
   'Plumbing',
   'Moving',

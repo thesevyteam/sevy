@@ -80,7 +80,7 @@ function IdentityVerification({ idInfo, setIDInfo }) {
         <input
           id="pp_file_nput"
           type="file"
-          accept=".jpg,.jpeg,.png"
+          accept="image/*"
           className="hidden"
           onChange={handlePPFileChange}
           required
@@ -104,7 +104,7 @@ function IdentityVerification({ idInfo, setIDInfo }) {
         />
         <input
           id="id_file_input"
-          type="file"
+          type="image/*"
           accept=".jpg,.jpeg,.png"
           className="hidden"
           onChange={handleIDFileChange}
