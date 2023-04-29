@@ -1,12 +1,12 @@
 'use client';
 
+import { getCurrentLocation } from '@/api/location';
 import SelectField from '@/shared/components/SelectField';
 import Button from '@/shared/components/button';
-import ngeohash from 'ngeohash';
 import { useEffect, useState } from 'react';
 import { BiCurrentLocation } from 'react-icons/bi';
 
-function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
+async function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
   const [yoe, setYoe] = useState();
   const [bio, setBio] = useState('');
   const [availableDays, setAvailableDays] = useState([]);
@@ -76,47 +76,11 @@ function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
     { value: 23, label: '11:00 PM' },
   ];
 
-  const getCurrentLocation = async () => {
-    console.log('boombar');
-    if (!navigator.geolocation) {
-      console.error('Geolocation is not supported by your browser');
-      return;
-    }
-
-    try {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          const geohash = ngeohash.encode(latitude, longitude);
-          setGeohash(geohash);
-
-          // Get city information using the Nominatim API
-          const response = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-          );
-
-          if (response.ok) {
-            const data = await response.json();
-            const city =
-              data.address.city ||
-              data.address.town ||
-              data.address.village ||
-              data.address.suburb ||
-              data.address.state ||
-              'Unknown';
-            setCity(city);
-          } else {
-            console.error('Failed to get city information');
-          }
-        },
-        (error) => {
-          console.error('Unable to retrieve your location', error);
-        }
-      );
-    } catch (error) {
-      console.error('Error getting location:', error);
-    }
-  };
+  async function getCurLoc() {
+    const { cur_geohash, cur_city } = await getCurrentLocation();
+    setGeohash(cur_geohash);
+    setCity(cur_city);
+  }
 
   return (
     <div className="space-y-4">
@@ -206,7 +170,7 @@ function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
           className={'w-full'}
           text={'Use Current Location'}
           icon={<BiCurrentLocation style={{ width: 16, height: 16 }} />}
-          onClick={getCurrentLocation}
+          onClick={getCurLoc}
         />
         <p className="text-xs text-gray-500 font-thin mt-0.5">
           turn on location for better results

@@ -1,4 +1,4 @@
-import { addService } from '@/api/booking';
+import { addService } from '@/api/services';
 import ImageSlider from '@/shared/components/ImageSlider';
 import LoadingIndicator from '@/shared/components/LoadingIndicator';
 import SelectField from '@/shared/components/SelectField';
@@ -61,7 +61,7 @@ const AddService = ({ closeModal }) => {
       formData.append('price', price);
       const res = await addService(formData);
       if (res !== null) {
-        router.refresh();
+        window.location.reload();
         closeModal();
       } else {
         setLoading(false);

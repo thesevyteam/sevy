@@ -30,7 +30,7 @@ function Price({
           small ? 'text-sm' : 'text-lg'
         }`}
       >
-        {price.toFixed(2)}
+        {price}
       </span>
       {startingPrice && (
         <span

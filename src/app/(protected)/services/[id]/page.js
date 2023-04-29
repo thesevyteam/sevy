@@ -1,9 +1,25 @@
 import ImageSlider from '@/shared/components/ImageSlider';
 import ReviewTile from '@/shared/components/ReviewTile';
 import Rating from '@/shared/components/rating';
+import axios from 'axios';
 import ServiceInfo from './components/serviceInfo';
 
-const ServiceDetails = () => {
+async function getService(id) {
+  try {
+    const res = await axios.get(
+      `${process.env.LOCATION_BASED_SERVER_URL}/services/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.error('Error fetching service:', error);
+    throw error;
+  }
+}
+
+const ServiceDetails = async ({ params: { id } }) => {
   const images = [
     'https://images.unsplash.com/photo-1681394346473-bfbfe6bb4e48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
     'https://images.unsplash.com/photo-1681484621384-ce731bee91cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
@@ -146,30 +162,15 @@ const ServiceDetails = () => {
     },
   ];
 
-  const service = {
-    name: 'Service Name',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-    startingPrice: 100,
-    rating: 4.5,
-    reviews: 112,
-    category: 'Category Name',
-    provider: {
-      name: 'Provider Name',
-      image:
-        'https://images.unsplash.com/photo-1681484621384-ce731bee91cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60',
-      rating: 4.5,
-      reviews: 112,
-      location: 'Location Name',
-    },
-  };
+  const { data } = await getService(id);
+  const service = data;
 
   return (
     <div className="my-20 w-screen lg:w-full lg:screen-padding">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-2/3">
           <div className="w-full flex flex-col gap-5">
-            <ImageSlider images={images} />
+            <ImageSlider images={service.images} />
             <ServiceInfo serviceInfo={service} />
           </div>
         </div>

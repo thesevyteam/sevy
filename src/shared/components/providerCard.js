@@ -1,3 +1,4 @@
+import { useAuth } from '@/context/AuthContext';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,20 +14,32 @@ function ProviderCard({
   width = 'w-56',
   data: {
     id,
-    img,
-    service,
-    provider,
     category,
-    location,
-    rating,
+    provider_uid,
+    name,
+    duration,
+    description,
     price,
-    distance,
-    description = 'grttrrtrytr htdyrdtrdtr yd6trd',
-    owner = false,
+    images,
+    first_name,
+    last_name,
+    rating,
+    city,
+    geohash4,
+    geohash5,
+    geohash6,
   },
 }) {
+  const { user } = useAuth();
+  const owner = user?.uid === provider_uid;
+  const handleLinkClick = (e) => {
+    if (owner) {
+      e.preventDefault();
+    }
+  };
   return (
     <Link
+      onClick={handleLinkClick}
       href={`/services/${id}`}
       className={`group flex ${
         type === 'wide'
@@ -66,13 +79,13 @@ function ProviderCard({
       >
         <Image
           alt="Image of service provided"
-          src={img}
+          src={images[0]}
           fill
           className={`overflow-hidden`}
           style={{ objectFit: 'cover' }}
         />
         <Rating
-          rating={rating}
+          rating={rating ?? 0}
           small={true}
           className={`absolute ${
             type === 'wide'
@@ -94,10 +107,10 @@ function ProviderCard({
           }`}
         >
           <p
-            title={service}
+            title={name}
             className={`whitespace-nowrap overflow-hidden text-ellipsis flex-1 p-0 m-0`}
           >
-            {service}
+            {name}
           </p>
           <Price
             price={price}
@@ -106,7 +119,7 @@ function ProviderCard({
             shrink={type === 'wide' ? true : false}
           />
         </div>
-        <p className="text-sm text-primary">{provider}</p>
+        <p className="text-sm text-primary">{`${first_name} ${last_name}`}</p>
         <CapsuleIndicator text={category} small={true} />
         {type === 'wide' && (
           <p className="hidden text-sm text-gray-500 lg:two-line-ellipsis">
@@ -115,7 +128,7 @@ function ProviderCard({
         )}
         <CapsuleIndicator
           location={true}
-          text={distance ? distance + ' km away' : location}
+          text={city}
           bg={false}
           small={true}
           padding={false}

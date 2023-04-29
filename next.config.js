@@ -21,6 +21,7 @@ const nextConfig = {
       'images.unsplash.com',
       'plus.unsplash.com',
       'instagram.facc6-1.fna.fbcdn.net',
+      'ui-avatars.com',
     ],
   },
 };

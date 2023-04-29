@@ -1,24 +1,31 @@
 'use client';
-import { protectedRoute } from '@/api/auth';
+import { useAuth } from '@/context/AuthContext';
 import Button from '@/shared/components/button';
 import CapsuleIndicator from '@/shared/components/capsuleIndicator';
 import Image from 'next/image';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import ServicesSection from './components/servicesSection';
 import TopRatedSection from './components/topRatedSection';
+const { getCurrentLocation } = require('@/api/location');
 
 function Home() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [geohash, setGeohash] = useState(null);
+  const [city, setCity] = useState('');
+  const { user, setUser } = useAuth();
+  useEffect(() => {
+    getCurLoc();
+  }, []);
 
-  async function test() {
-    try {
-      const response = await protectedRoute();
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
+  async function getCurLoc() {
+    const { cur_geohash, cur_city } = await getCurrentLocation();
+    setGeohash(cur_geohash);
+    setCity(cur_city);
+    setUser({ ...user, geohash: cur_geohash, city: cur_city });
   }
+
+  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className="w-full mt-20">
@@ -26,7 +33,7 @@ function Home() {
         <div className="w-full lg:w-1/2">
           <CapsuleIndicator
             className="lg:hidden flex w-fit"
-            text="Cape Coast, GH"
+            text={`${city}, GH`}
             location={true}
           />
           <div className="mt-3 lg:mt-0 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold flex cursor-default">
@@ -46,15 +53,17 @@ function Home() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
-            {/* <Link href={`/search?q=${searchQuery}`}> */}
-            <Button
-              icon={
-                <FiSearch style={{ strokeWidth: '3', width: 18, height: 18 }} />
-              }
-              className="rounded-l-none px-4"
-              onClick={test}
-            />
-            {/* </Link> */}
+            <Link href={`/search?q=${searchQuery}`}>
+              <Button
+                icon={
+                  <FiSearch
+                    style={{ strokeWidth: '3', width: 18, height: 18 }}
+                  />
+                }
+                className="rounded-l-none px-4"
+                // onClick={() => {}}
+              />
+            </Link>
           </div>
         </div>
         {/* handyman img */}
@@ -69,7 +78,8 @@ function Home() {
         </div>
       </div>
       <ServicesSection />
-      <TopRatedSection />
+      {geohash && <TopRatedSection cur_geohash={geohash} />}
+      <div className="mt-10"></div>
     </div>
   );
 }

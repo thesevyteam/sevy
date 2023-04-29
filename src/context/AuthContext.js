@@ -18,7 +18,6 @@ export const AuthContextProvider = ({ children }) => {
   const refreshToken = useCallback(async () => {
     try {
       const response = await refreshJWTToken();
-      console.log('REFRESH RESPONSE: ', response.data);
       setUser(response.data);
     } catch (error) {
       console.log(error);
