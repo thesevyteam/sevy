@@ -69,7 +69,6 @@ function SignUp() {
   };
 
   const isButtonDisabled = () => {
-    console.log(profileSetupComplete());
     if (step === 0) return accountType === '';
     else if (step === 1) return !basicInfoComplete();
     else if (step === 3) return !profileSetupComplete();

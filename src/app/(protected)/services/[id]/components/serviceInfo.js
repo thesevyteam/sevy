@@ -95,6 +95,7 @@ function ServiceInfo({
       >
         <Booking
           providerName={`${first_name} ${last_name}`}
+          servicePrice={price}
           closeModal={closeModal}
         />
       </AppModal>

@@ -22,7 +22,6 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Loging in user...');
     setLoading(true);
     const userData = {
       email: email,

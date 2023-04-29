@@ -2,47 +2,30 @@ import { useState } from 'react';
 import { BsXLg } from 'react-icons/bs';
 import { GiTakeMyMoney } from 'react-icons/gi';
 import AppCalendar from './Calendar';
-import SelectField from './SelectField';
 import TimeSelector from './TimeSelector';
 import Button from './button';
 import Price from './price';
 
-const Booking = ({
-  closeModal,
-  providerName,
-  service = {
-    varieties: [
-      {
-        name: 'Basic',
-        price: 200,
-      },
-      {
-        name: 'Premium',
-        price: 300,
-      },
-    ],
-  },
-}) => {
+const Booking = ({ closeModal, providerName, servicePrice }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState();
-  const [serviceType, setServiceType] = useState();
+  // const [serviceType, setServiceType] = useState();
   const [note, setNote] = useState('');
-  const [price, setPrice] = useState(0);
+  // const [price, setPrice] = useState(servicePrice);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle booking submission logic here
-    console.log('Booking submitted');
     closeModal();
   };
 
-  const handleServiceTypeChange = (selectedOption) => {
-    setPrice(
-      service.varieties.find((variety) => variety.name === selectedOption.value)
-        .price
-    );
-    setServiceType(selectedOption);
-  };
+  // const handleServiceTypeChange = (selectedOption) => {
+  //   setPrice(
+  //     service.varieties.find((variety) => variety.name === selectedOption.value)
+  //       .price
+  //   );
+  //   setServiceType(selectedOption);
+  // };
 
   return (
     <div className="flex flex-col gap-4 w-screen lg:w-35vw h-screen lg:h-full lg:max-h-90vh p-2 sm:p-4 lg:p-0 hide-scrollbar">
@@ -62,7 +45,7 @@ const Booking = ({
           </label>
           <TimeSelector time={selectedTime} setTime={setSelectedTime} />
         </div>
-        <div>
+        {/* <div>
           <label className="label" htmlFor="serviceType">
             Service Type
           </label>
@@ -76,7 +59,7 @@ const Booking = ({
             }))}
             onBg={true}
           />
-        </div>
+        </div> */}
         <textarea
           placeholder="Note (optional)"
           value={note}
@@ -85,7 +68,7 @@ const Booking = ({
         />
         <div className="flex justify-between items-center">
           <p className="">Total</p>
-          <Price price={price} />
+          <Price price={servicePrice} />
         </div>
         <Button
           icon={<GiTakeMyMoney style={{ width: 20, height: 20 }} />}

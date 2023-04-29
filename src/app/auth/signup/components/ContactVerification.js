@@ -15,7 +15,6 @@ function ContactVerification({ contact, contactType, goTo }) {
     try {
       const response = await submitOTP(code, user.uid);
       user.role === 'handyman' ? goTo(3) : goTo(5);
-      console.log(response);
     } catch (error) {
       console.error('Error submitting OTP:', error);
       setError(error.response.data.error);
@@ -23,7 +22,6 @@ function ContactVerification({ contact, contactType, goTo }) {
   };
 
   const handleResendOTP = async () => {
-    console.log("Resending OTP to user's " + contactType);
     try {
       const response = await resendOTP(
         user.email,

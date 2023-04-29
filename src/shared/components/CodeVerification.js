@@ -37,7 +37,6 @@ const CodeVerification = ({ verify }) => {
   useEffect(() => {
     const allFilled = codes.every((code) => code !== '');
     if (allFilled) {
-      console.log("All codes filled, let's verify");
       handleVerification();
     }
   }, [codes, verify]);

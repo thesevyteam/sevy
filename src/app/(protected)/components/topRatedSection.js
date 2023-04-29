@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 function TopRatedSection({ cur_geohash }) {
   const [data, setData] = useState([]);
-  console.log(cur_geohash);
   // const { user } = useAuth();
 
   useEffect(() => {

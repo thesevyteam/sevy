@@ -20,7 +20,6 @@ import AddService from './AddService';
 //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nunc ut aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem.',
 //     }
 const PortfolioSection = ({ services }) => {
-  console.log(services);
   const [addServiceModalOpen, setAddServiceModalOpen] = useState(false);
   const [closingAddServiceModal, setClosingAddServiceModal] = useState(false);
 
