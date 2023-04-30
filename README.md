@@ -10,6 +10,7 @@ These instructions will help you set up and run the Sevy app and its microservic
 
 - Node.js (v16.x or higher)
 - npm (v8.x or higher)
+- pnpm (v8.x or higher)
 - MySQL (v5.7 or higher)
 - Git
 
@@ -38,7 +39,7 @@ npm install
 
 ```
 cd auth.sevy
-npm install
+pnpm install
 ```
 
 2. Create a `.env` file in the `auth.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission and update the mysql values to yours.
@@ -46,7 +47,7 @@ npm install
 3. Start the `auth.sevy` service by running the following command:
 
 ```
-npm start
+pnpm start
 ```
 
 ### Setting Up booking.sevy
@@ -55,7 +56,7 @@ npm start
 
 ```
 cd booking.sevy
-npm install
+pnpm install
 ```
 
 2. Create a `.env` file in the `booking.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission and update the mysql values to yours.
@@ -63,7 +64,7 @@ npm install
 3. Start the `booking.sevy` service by running the following command:
 
 ```
-npm start
+pnpm start
 ```
 
 ### Start the Development Server
