@@ -7,18 +7,6 @@ import { useState } from 'react';
 import { RiAddFill } from 'react-icons/ri';
 import AddService from './AddService';
 
-// {
-//       id: 8,
-//       category: 'Moving',
-//       provider: 'Janet Adom',
-//       rating: 4.5,
-//       distance: 1.2,
-//       price: 23,
-//       service: 'Moving and Packing',
-//       img: 'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW92aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
-//       description:
-//         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem. Sed euismod, nunc ut aliquam aliquam, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet lorem.',
-//     }
 const PortfolioSection = ({ services }) => {
   const [addServiceModalOpen, setAddServiceModalOpen] = useState(false);
   const [closingAddServiceModal, setClosingAddServiceModal] = useState(false);

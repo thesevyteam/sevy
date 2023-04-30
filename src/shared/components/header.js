@@ -106,7 +106,7 @@ function Header() {
           className="hidden lg:flex"
           iconClassName={isScrolled ? 'text-white' : 'text-primary'}
           textClassName={isScrolled ? 'text-white' : 'text-primary'}
-          text="Cape Coast, GH"
+          text={`${user.city}, GH`}
           location={true}
         />
         <div className="flex justify-center items-center gap-5">
@@ -126,10 +126,12 @@ function Header() {
             img={
               <Image
                 src={user?.profile_picture}
-                width="40"
-                height="40"
+                // width="40"
+                // height="40"
+                fill
                 alt="Your Profile Picture"
                 className="rounded-full"
+                style={{ objectFit: 'cover' }}
               />
             }
           />

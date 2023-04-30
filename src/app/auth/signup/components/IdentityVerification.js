@@ -104,8 +104,8 @@ function IdentityVerification({ idInfo, setIDInfo }) {
         />
         <input
           id="id_file_input"
-          type="image/*"
-          accept=".jpg,.jpeg,.png"
+          type="file"
+          accept="image/*"
           className="hidden"
           onChange={handleIDFileChange}
           required

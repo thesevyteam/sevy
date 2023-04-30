@@ -45,12 +45,12 @@ export default async function Profile({ params }) {
       <div className="w-full flex flex-col lg:flex-row gap-4">
         <div className="w-full lg:w-1/3 space-y-4">
           <BasicInfo details={profile} />
-          <BioSection />
+          <BioSection bio={profile.bio} />
           <SkillsSection />
           <ReviewsSection />
         </div>
         <div className="w-full lg:w-2/3">
-          <Services services={services} />
+          {profile.role === 'handyman' && <Services services={services} />}
         </div>
       </div>
     </div>

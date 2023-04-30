@@ -19,7 +19,7 @@ function NavIcon({
         {icon}
       </div>
     ) : (
-      <div className=" h-10 w-10 hover:border-primary hover:border-2 shadow-md rounded-full cursor-pointer hover:shadow-lg">
+      <div className="relative h-10 w-10 hover:border-primary hover:border-2 shadow-md rounded-full cursor-pointer hover:shadow-lg overflow-hidden">
         {img}
       </div>
     );

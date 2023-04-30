@@ -61,7 +61,7 @@ const AddService = ({ closeModal }) => {
       formData.append('price', price);
       const res = await addService(formData);
       if (res !== null) {
-        window.location.reload();
+        // window.location.reload();
         closeModal();
       } else {
         setLoading(false);

@@ -6,7 +6,7 @@ import Button from '@/shared/components/button';
 import { useEffect, useState } from 'react';
 import { BiCurrentLocation } from 'react-icons/bi';
 
-async function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
+function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
   const [yoe, setYoe] = useState();
   const [bio, setBio] = useState('');
   const [availableDays, setAvailableDays] = useState([]);
@@ -76,11 +76,11 @@ async function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
     { value: 23, label: '11:00 PM' },
   ];
 
-  async function getCurLoc() {
+  const getCurLoc = async () => {
     const { cur_geohash, cur_city } = await getCurrentLocation();
     setGeohash(cur_geohash);
     setCity(cur_city);
-  }
+  };
 
   return (
     <div className="space-y-4">
@@ -137,11 +137,11 @@ async function ProfileSetup({ handymanProfileInfo, setHandymanProfileInfo }) {
         />
       </div>
       <div>
-        <label htmlFor="available_emd_time" className="label">
+        <label htmlFor="available_end_time" className="label">
           End Time
         </label>
         <SelectField
-          id="available_emd_time"
+          id="available_end_time"
           value={availableEndTime}
           onChange={addAvailableEndTime}
           onBg={true}
