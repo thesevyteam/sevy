@@ -1,38 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sevy - A Location-Based Handyman Service Finder
+
+Sevy is a location-based service marketplace app that connects users with various service providers, making it easy to find and book services in multiple categories. The app is built using a microservices architecture, with separate services for authentication and booking.
 
 ## Getting Started
 
-First, run the development server:
+These instructions will help you set up and run the Sevy app and its microservices on your local machine for development and testing purposes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### Prerequisites
+
+- Node.js (v16.x or higher)
+- npm (v8.x or higher)
+- MySQL (v5.7 or higher)
+- Git
+
+### Clone the Repository
+
+First, clone all the separate repository to a folder on your local machine using the following commands:
+
+```
+git clone https://github.com/thesevyteam/sevy.git
+git clone https://github.com/thesevyteam/auth.sevy.git
+git clone https://github.com/thesevyteam/booking.sevy.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install Dependencies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Navigate to the project directory and run the following command to install the required dependencies:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+cd sevy
+npm install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Setting Up auth.sevy
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Navigate to the project directory and run the following command to install the required dependencies:
 
-## Learn More
+```
+cd auth.sevy
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Create a `.env` file in the `auth.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the `auth.sevy` service by running the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm start
+```
 
-## Deploy on Vercel
+### Setting Up booking.sevy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Navigate to the project directory and run the following command to install the required dependencies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+cd booking.sevy
+npm install
+```
+
+2. Create a `.env` file in the `booking.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission.
+
+3. Start the `booking.sevy` service by running the following command:
+
+```
+npm start
+```
+
+### Start the Development Server
+
+With both `auth.sevy` and `booking.sevy` services running, navigate to the main project directory and start the development server using the following command:
+
+```
+cd ..
+npm run dev
+```
+
+The app should now be running on `http://localhost:3000`. Open your browser and navigate to the URL to access the Sevy app.
+
+## Testing
+
+To run the test suite for the Sevy app, execute the following command:
+
+```
+npm run test
+```
