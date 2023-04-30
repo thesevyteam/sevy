@@ -41,7 +41,7 @@ cd auth.sevy
 npm install
 ```
 
-2. Create a `.env` file in the `auth.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission.
+2. Create a `.env` file in the `auth.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission and update the mysql values to yours.
 
 3. Start the `auth.sevy` service by running the following command:
 
@@ -58,7 +58,7 @@ cd booking.sevy
 npm install
 ```
 
-2. Create a `.env` file in the `booking.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission.
+2. Create a `.env` file in the `booking.sevy` directory and add the necessary environment variables. You can use the one provided with the report submission and update the mysql values to yours.
 
 3. Start the `booking.sevy` service by running the following command:
 
