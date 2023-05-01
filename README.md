@@ -69,6 +69,13 @@ pnpm start
 
 ### Start the Development Server
 
+Create a `.env` file and add these variables
+
+```
+AUTH_SERVER_URL=http://localhost:5000
+LOCATION_BASED_SERVER_URL=http://localhost:5001
+```
+
 With both `auth.sevy` and `booking.sevy` services running, navigate to the main project directory and start the development server using the following command:
 
 ```
